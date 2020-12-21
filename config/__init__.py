@@ -4,7 +4,7 @@ import os
 
 
 class Config:
-	APP_NAME = os.environ.get('APP_NAME', str('Compliance Analysis Engine'))
+	APP_NAME = os.environ.get('APP_NAME', str('Tagging Engine'))
 	BRANCH_NAME = os.environ.get('BRANCH_NAME', str('develop'))
 	DATABASE_URL = os.environ.get('DATABASE_URL', str('sqlite:///test.db'))
 	ENVIRONMENT = os.environ.get('ENVIRONMENT', str('local'))
