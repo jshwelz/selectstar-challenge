@@ -6,10 +6,8 @@ This project contains a function to group some words by their prefixes
 
 -   [Getting Started][1]
     -   [Prerequesites][2]
-    -   [How to Run Backend Server][3]
-    -   [Run Unit Testing][3]
--   [Usage][4]
-    -   [Authentication Token][5]
+    -   [How to Run Backend Server][3]    
+-   [Usage][4]    
 
 ## Getting Started
 
@@ -22,8 +20,8 @@ Activate the virtual environment
 Install the the require packages via pip 
 
 ```
-virtualenv env
-source env/bin/activate
+virtualenv venv
+source venv/bin/activate
 pip3 install -U -r requirements.txt
 ```
 

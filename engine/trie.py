@@ -4,9 +4,9 @@ import uuid
 
 
 class Node:
-	def __init__(self, children, isWord):
+	def __init__(self, children, is_word):
 		self.children = children
-		self.isWord = isWord
+		self.is_word = is_word
 
 
 class Tree:
@@ -22,7 +22,7 @@ class Tree:
 				if not char in current.children:
 					current.children[char] = Node({}, False)
 				current = current.children[char]
-			current.isWord = True
+			current.is_word = True
 
 	def autocomplete(self, prefix):
 		current = self.trie
@@ -30,7 +30,7 @@ class Tree:
 			if not char in current.children:
 				return []
 			current = current.children[char]
-		return self._findWordsFromNode(current, prefix)
+		return self.find_words_from_node(current, prefix)
 
 	def dfs(self, visited, graph, node, word, words):
 		if node not in visited:
@@ -43,25 +43,12 @@ class Tree:
 					self.dfs(visited, graph.get(node).children, neighbour, word, words)
 		return words
 
-	def bfs(self, visited, graph, node):
-		visited.append(node)
-		self.queue.append(node)
-
-		while self.queue:
-			s = self.queue.pop(0)
-			print(s, end='')
-			if graph.get(s) is not None:
-				for neighbour in graph[s].children:
-					if neighbour not in visited:
-						visited.append(neighbour)
-						self.queue.append(neighbour)
-
-	def _findWordsFromNode(self, node, prefix):
+	def find_words_from_node(self, node, prefix):
 		words = []
-		if node.isWord:
+		if node.is_word:
 			words += [prefix]
 		for char in node.children:
-			words += self._findWordsFromNode(node.children[char], prefix + char)
+			words += self.find_words_from_node(node.children[char], prefix + char)
 		return words
 
 
